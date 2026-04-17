@@ -1,47 +1,33 @@
 # Cryptography
 
-Overview
-The Cryptographic Implementation Engine is a Java-based security toolkit designed to demonstrate the fundamental mathematical principles of data encryption and decryption. The project implements classic symmetric algorithms, focusing on modular arithmetic, linear algebra, and character mapping to ensure data confidentiality. 
+## Overview
+[cite_start]The **Cryptographic Implementation Engine** is a Java-based security toolkit designed to demonstrate the fundamental mathematical principles of data encryption and decryption[cite: 4, 71, 154]. [cite_start]The project implements classic symmetric algorithms, focusing on modular arithmetic, linear algebra, and character mapping to ensure data confidentiality[cite: 31, 98, 167].
 
-Core Algorithms
-1. Caesar Cipher (Shift Cipher)
-A symmetric-key algorithm that shifts characters in a plaintext message by a fixed numerical value (the key). 
+## Core Algorithms
 
-Logic: Uses the formula (character - 'A' + shift) % 26 to handle character wrapping. 
+### 1. Caesar Cipher (Shift Cipher)
+[cite_start]A symmetric-key algorithm that shifts characters in a plaintext message by a fixed numerical value, known as the key[cite: 2, 8].
+* [cite_start]**Logic:** Uses the formula `(character - 'A' + shift) % 26` to handle character wrapping within the alphabet[cite: 31].
+* [cite_start]**Features:** Maintains case sensitivity by processing uppercase and lowercase letters separately and leaves non-alphabetic characters unchanged[cite: 10, 11, 13, 29, 33].
 
-Features: Maintains case sensitivity and leaves non-alphabetic characters unchanged. 
+### 2. Hill Cipher (Polygraphic Cipher)
+[cite_start]An advanced encryption technique that encrypts blocks of letters simultaneously using matrix multiplication[cite: 69, 78].
+* [cite_start]**Encryption:** Multiplies plaintext blocks (vectors) by a 2x2 key matrix modulo 26[cite: 98, 100, 141].
+* [cite_start]**Decryption:** Calculates the **modular multiplicative inverse** of the key matrix to recover the original text[cite: 82, 107].
+* [cite_start]**Mathematical Foundation:** Relies on Linear Algebra and modular inverses, specifically where `det * detInverse % 26 == 1`[cite: 108, 114].
 
-2. Hill Cipher (Polygraphic Cipher)
-An advanced encryption technique that encrypts blocks of letters simultaneously using matrix multiplication. 
+### 3. Substitution Cipher (Monoalphabetic)
+[cite_start]A mapping-based system where each letter of the alphabet is replaced by a corresponding letter from a mirrored or scrambled alphabet key[cite: 152, 157].
+* [cite_start]**Mechanism:** Performs a position-based lookup between a standard alphabet string and a cipher alphabet string[cite: 173, 174, 175].
+* [cite_start]**Key Strategy:** Utilizes a mirrored alphabet (Atbash style) where 'a' maps to 'z', 'b' to 'y', etc[cite: 167].
 
-Encryption: Multiplies plaintext vectors by a 2×2 key matrix modulo 26. 
+## Technical Implementation
+* [cite_start]**Memory Management:** Implemented using `StringBuilder` to ensure efficient string manipulation and minimize memory overhead during encryption and decryption cycles[cite: 25, 93].
+* [cite_start]**Input Processing:** Features robust character normalization using methods like `toUpperCase()` and input validation via `Character.isLetter()`[cite: 28, 91].
+* [cite_start]**Modular Math:** Includes dedicated logic to ensure positive modulo results, particularly during Hill Cipher matrix operations and Caesar Cipher decryption[cite: 26, 124, 127].
 
-Decryption: Calculates the modular multiplicative inverse of the key matrix to recover the original text. 
-
-Mathematical Foundation: Relies on Linear Algebra and modular inverses (det⋅detInverse≡1(mod26)). 
-
-3. Substitution Cipher (Monoalphabetic)
-A mapping-based system where each letter of the alphabet is replaced by a corresponding letter from a mirrored or scrambled alphabet key. 
-
-Mechanism: Performs a position-based lookup between a standard alphabet string and a cipher alphabet string. 
-
-Key Strategy: Utilizes a mirrored alphabet (Atbash style) where 'a' maps to 'z', 'b' to 'y', etc. 
-
-Technical Implementation
-Memory Management: Implemented using StringBuilder to ensure efficient string manipulation and minimize memory overhead during encryption/decryption cycles. 
-
-Input Processing: Features robust character normalization and input validation to handle diverse plaintext formats. 
-
-Modular Math: Includes dedicated logic for positive modulo results and handling of negative shift values during decryption. 
-
-How to Run
-Ensure you have JDK 8 or higher installed.
-
-Compile the source files:
-
-Bash
-javac CaesarCipher.java HillCipher.java SubstitutionCipher.java
-Run the desired algorithm:
-
-Bash
-java CaesarCipher
+## How to Run
+1. **Ensure** you have **JDK 8 or higher** installed.
+2. **Compile** the source files:
+   ```bash
+   javac CaesarCipher.java HillCipher.java SubstitutionCipher.java
