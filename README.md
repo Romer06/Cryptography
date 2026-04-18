@@ -1,7 +1,7 @@
 # Cryptography
 
 ## Overview
-[cite_start]The **Cryptographic Implementation Engine** is a Java-based security toolkit designed to demonstrate the fundamental mathematical principles of data encryption and decryption[cite: 4, 71, 154]. [cite_start]The project implements classic symmetric algorithms, focusing on modular arithmetic, linear algebra, and character mapping to ensure data confidentiality[cite: 31, 98, 167].
+The **Cryptographic Implementation Engine** is a Java-based security toolkit designed to demonstrate the fundamental mathematical principles of data encryption and decryption.The project implements classic symmetric algorithms, focusing on modular arithmetic, linear algebra, and character mapping to ensure data confidentiality.
 
 ## Core Algorithms
 
